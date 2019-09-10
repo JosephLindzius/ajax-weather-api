@@ -1,23 +1,34 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather App</title>
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<template>
-
-</template>
-<div id="openweathermap-widget-11"></div>
-<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4298960',appid: '0624529f33603cdd04d328d40402fb19',units: 'metric',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
-    <input  id="city" type="text" name="city" value=""><br>
-    <button id="submit" type="submit">Submit</button>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="assets/js/script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Weather Joe App</title>
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <template id="tpl-city-weather">
+            <h2 id="cityName"></h2>
+        </template>
+        <header id="wrapper0">
+            <h1>Weatherman Joe</h1>
+            <h6><em>"You can always count on Joe!"</em></h6>
+        </header>
+        <main id="wrapper1">
+            <input  id="city" type="text" name="city" value=""><br>
+            <button id="submit" type="submit">Submit</button>
+            <div class="pad">
+                <p id="target"></p>
+            </div>
+        </main>
+        <footer id="wrapper2">
+            <p>brought to you by OpenWeatherMaps API</p>
+        </footer>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
 </html>
+
+
