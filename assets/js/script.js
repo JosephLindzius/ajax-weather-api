@@ -1,3 +1,11 @@
+function playAnimation () {
+    var dayBox = document.querySelectorAll(".day");
+    dayBox.style.animation = d
+}
+
+
+
+
 document.getElementById("submit").addEventListener("click", function(){
     const tplCityWeather = document.getElementById("tpl-city-weather");
     const target = document.getElementById("target");
