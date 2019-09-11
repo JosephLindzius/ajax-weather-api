@@ -3,6 +3,7 @@ Making a five day weather forecast web app with HTML/SCSS/Javascript
 
 ![Weatherman Joe App](./assets/images/WeathermanJoe.png)
 
+[Click here to visit site](https://josephlindzius.github.io/ajax-weather-api/index.html)
 ##Weatherman Joe Webapp
 
 #####Information
