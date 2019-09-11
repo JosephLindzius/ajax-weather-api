@@ -17,14 +17,18 @@
             <h6><em>"You can always count on Joe!"</em></h6>
         </header>
         <main id="wrapper1">
-            <input  id="city" type="text" name="city" value=""><br>
+            <input  id="city" type="text" name="city" value="">
+            <select id="tempType">
+            <option  value="metric">&#8451;</option>
+            <option  value="imperial">&#8457;</option>
+            </select><br>
             <button id="submit" type="submit">Submit</button>
             <div class="pad">
                 <p id="target"></p>
             </div>
         </main>
         <footer id="wrapper2">
-            <p>brought to you by OpenWeatherMaps API</p>
+            <p>brought to you by <a href="http://www.openweathermap.org">OpenWeather</a> API</p>
         </footer>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="assets/js/script.js"></script>

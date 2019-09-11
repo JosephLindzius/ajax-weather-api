@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
+$color-blue: blue;
+$color-darkblue: darkblue;
+$color-white: white;
+$color-skyblue: deepskyblue;
+
+@mixin textShadow {
+  color: $color-white;
+  text-shadow: -1px -1px 0px $color-blue,
+  3px 3px 0px $color-blue,
+  6px 6px 0px $color-darkblue;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,43 +18,72 @@
   box-sizing: border-box;
 }
 
+
 body {
+ text-align: center;
 
 }
 
 h2#cityName {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 .day {
   border: 2px black;
-  background-color: purple;
+  background-color: rgba(52, 46, 208, 0.63);
+  border-radius: 10%;
+  box-shadow: 2px 4px 4px white;
+  padding: 10px;
+  h4 {
+    font-family: "Lodrina Solid", cursive;
+    letter-spacing: 2px;
+    @include textShadow;
+  }
 }
 
 #wrapper0 {
   margin: auto;
+  h1 {
+    font-family: 'Lodrina Solid', cursive;
+    letter-spacing: 5px;
+    @include textShadow;
+  };
+  h6 {
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+
 }
 
+
+
 #wrapper2 {
-  margin-top: 40px;
+  margin-top: 5px;
 }
 
 #submit {
     width: 50px;
   height: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 #submit:hover {
   box-shadow: 3px 2px 3px black;
+
 }
 
-
+#city {
+  margin: 10px;
+}
 
 .pad {
-  background-color: deepskyblue;
+  background-color: $color-skyblue;
   display: flex;
   justify-content: space-evenly;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .degrees {
@@ -53,15 +95,25 @@ h2#cityName {
   padding: 10px;
   float: left;
   width: 20%;
+  text-align: center;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 920px) {
+
+  h1 {
+    font-size: 40px;
+  }
+
+
   .weather_info {
     width: 50%;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 470px) {
+  h1 {
+    font-size: 30px;
+  }
   .weather_info {
     width: 100%;
   }

@@ -1,15 +1,21 @@
 document.getElementById("submit").addEventListener("click", function(){
-  //  var sumDay0 = 0, sumDay1 = 0, sumDay2 = 0, sumDay3 = 0, sumDay4 = 0;
     const tplCityWeather = document.getElementById("tpl-city-weather");
     const target = document.getElementById("target");
     let weatherInfo = [];
+    let degreeType = document.getElementById("tempType").value;
+    console.log(degreeType);
+    let degreeSym = "";
+    if (degreeType === "metric") {
+        degreeSym = "&#8451;"
+    } else {
+        degreeSym = "&#8457;"
+    }
     let city = document.getElementById("city").value;
-
-// Make a request for a user with a given ID
-    axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&APPID=0624529f33603cdd04d328d40402fb19')
+    axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units='+ degreeType +'&APPID=0624529f33603cdd04d328d40402fb19')
         .then(function (response) {
             target.innerText = "";
             weatherInfo = response;
+            console.log(response);
             target.appendChild(tplCityWeather.content.cloneNode(true));
             let cityName = document.getElementById("cityName");
             cityName.innerText = city;
@@ -21,16 +27,14 @@ document.getElementById("submit").addEventListener("click", function(){
                 let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 let nameOfDay = days[date.getDay()];
                 let today = new Date().getDay();
-                    console.log("show me here "+ today);
-                if(date % DAY_IN_MILLISECONDS === 0) {
-                    if (currentIndex < TOTAL_DAY_DATA_SET) {
-                        //creates the first day
+                  //  console.log("show me here "+ today);
+                if(date % DAY_IN_MILLISECONDS === 0 ) {
+                    if (currentIndex < TOTAL_DAY_DATA_SET && currentIndex !== 0) { //creates the first day setup
                         let nameOfDay = days[date.getDay()-1];
                         let sum = 0;
                         let min = 100;  //temperature will never be over 100degrees but has enough distance to do calculation over 8 data periods
-                        let max = -100; //same reasoning here for max
+                        let max = -100; //same reasoning for picking max at a low enough number
                         for (let i = 0; i < currentIndex; i++) {
-                            //we know that a full day complete is equal to 8 data points thus adding 8 here will display values for a complete day
                             if (weatherInfo.data.list[i].main.temp_min < min) {
                                 min = weatherInfo.data.list[i].main.temp_min;
                             }
@@ -38,9 +42,9 @@ document.getElementById("submit").addEventListener("click", function(){
                                 max = weatherInfo.data.list[i].main.temp_max;
                             }
                             sum += Math.round(weatherInfo.data.list[i].main.temp);
-                            console.log("sum "+sum);
+                           // console.log("sum "+sum);
                             var average = sum/currentIndex;
-                            console.log("first day ave" + average);
+                          //  console.log("first day ave" + average);
                         }
                             let dayBlock = document.createElement("div");
                             dayBlock.className = 'weather_info';
@@ -49,11 +53,11 @@ document.getElementById("submit").addEventListener("click", function(){
                                     <h4 class="weather_info">${nameOfDay}</h4>
                                     <img src="http://openweathermap.org/img/wn/${weatherInfo.data.list[currentIndex + 3].weather[0].icon}@2x.png">
                                     <p>Average Temperature</p>
-                                    <span class="degrees">${Math.round(average)}&#8451;</span>
+                                    <span class="degrees">${Math.round(average)}${degreeSym}</span>
                                     <p>Minimum Temperature</p>
-                                    <span class="degrees">${Math.round(min)}&#8451;</span>
+                                    <span class="degrees">${Math.round(min)}${degreeSym}</span>
                                     <p>Maximum Temperature</p>
-                                    <span class="degrees">${Math.round(max)}&#8451;</span>
+                                    <span class="degrees">${Math.round(max)}${degreeSym}</span>
                                 </div>`;
                             target.appendChild(dayBlock);
                     }
@@ -63,7 +67,6 @@ document.getElementById("submit").addEventListener("click", function(){
                     let max = -100; //same reasoning here for max
                     for (let i = currentIndex; i < currentIndex + TOTAL_DAY_DATA_SET; i++) {
                         //we know that a full day complete is equal to 8 data points thus adding 8 here will display values for a complete day
-
                         if (weatherInfo.data.list[i].main.temp_min < min) {
                             min = weatherInfo.data.list[i].main.temp_min;
                         }
@@ -82,11 +85,11 @@ document.getElementById("submit").addEventListener("click", function(){
                             <h4 class="weather_info">${nameOfDay}</h4>
                             <img src="http://openweathermap.org/img/wn/${weatherInfo.data.list[currentIndex + 3].weather[0].icon}@2x.png">
                             <p>Average Temperature</p>
-                            <span class="degrees">${Math.round(average)}&#8451;</span>
+                            <span class="degrees">${Math.round(average)}${degreeSym}</span>
                             <p>Minimum Temperature</p>
-                            <span class="degrees">${Math.round(min)}&#8451;</span>
+                            <span class="degrees">${Math.round(min)}${degreeSym}</span>
                             <p>Maximum Temperature</p>
-                            <span class="degrees">${Math.round(max)}&#8451;</span>
+                            <span class="degrees">${Math.round(max)}${degreeSym}</span>
                          </div>`;
                     target.appendChild(dayBlock);
                 }
