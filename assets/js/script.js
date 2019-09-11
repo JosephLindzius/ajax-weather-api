@@ -11,7 +11,7 @@ document.getElementById("submit").addEventListener("click", function(){
         degreeSym = "&#8457;"
     }
     let city = document.getElementById("city").value;
-    axios.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units='+ degreeType +'&APPID=0624529f33603cdd04d328d40402fb19')
+    axios.get('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units='+ degreeType +'&APPID=0624529f33603cdd04d328d40402fb19')
         .then(function (response) {
             target.innerText = "";
             weatherInfo = response;
