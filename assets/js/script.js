@@ -96,7 +96,7 @@ document.getElementById("submit").addEventListener("click", function(){
             });
         })
         .catch(function (error) {
-            console.log(error);
+            console.error(error);
         })
         .finally(function () {
 
