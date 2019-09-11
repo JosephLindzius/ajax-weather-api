@@ -26,8 +26,6 @@ document.getElementById("submit").addEventListener("click", function(){
                 let date = new Date(threeHourForecast.dt * 1000); //make into milli so we can calculate
                 let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 let nameOfDay = days[date.getDay()];
-                let today = new Date().getDay();
-                  //  console.log("show me here "+ today);
                 if(date % DAY_IN_MILLISECONDS === 0 ) {
                     if (currentIndex < TOTAL_DAY_DATA_SET && currentIndex !== 0) { //creates the first day setup
                         let nameOfDay = days[date.getDay()-1];
@@ -42,9 +40,7 @@ document.getElementById("submit").addEventListener("click", function(){
                                 max = weatherInfo.data.list[i].main.temp_max;
                             }
                             sum += Math.round(weatherInfo.data.list[i].main.temp);
-                           // console.log("sum "+sum);
                             var average = sum/currentIndex;
-                          //  console.log("first day ave" + average);
                         }
                             let dayBlock = document.createElement("div");
                             dayBlock.className = 'weather_info';
