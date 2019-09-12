@@ -135,9 +135,34 @@ h2#cityName {
   .weather_info {
     width: 50%;
   }
+  #target {
+    img {
+
+    }
+    h4 {
+      font-size: 40px;
+    }
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .degrees {
+      margin-bottom: 10px;
+    }
+  }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 720px) {
+  #target{
+    h4 {
+      font-size: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
   h1 {
     font-size: 30px;
   }
@@ -153,15 +178,18 @@ h2#cityName {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+
     h4 {
       font-size: 40px;
     }
+
     p {
       margin-top: 5px;
       margin-bottom: 5px;
     }
+
     .degrees {
-       margin-bottom: 10px;
+      margin-bottom: 10px;
     }
 
   }

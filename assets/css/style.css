@@ -94,8 +94,19 @@ h2#cityName {
     font-size: 40px; }
 
   .weather_info {
-    width: 50%; } }
-@media screen and (max-width: 470px) {
+    width: 50%; }
+
+  #target h4 {
+    font-size: 40px; }
+  #target p {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  #target .degrees {
+    margin-bottom: 10px; } }
+@media screen and (max-width: 720px) {
+  #target h4 {
+    font-size: 30px; } }
+@media screen and (max-width: 550px) {
   h1 {
     font-size: 30px; }
 

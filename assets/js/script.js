@@ -1,8 +1,14 @@
 function playAnimation () {
-    var dayBox = document.querySelectorAll(".day");
-    dayBox.style.animation = d
+    document.querySelector("#header").animate([
+        { transform: 'translateX(5px)' },
+        { transform: 'translateX(-5px)' },
+        { transform: 'translateX(5px)' }
+    ], {
+        duration: 2000,
+        iterations: Infinity
+    });
 }
-
+playAnimation();
 
 
 
